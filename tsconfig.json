@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "allowJs": true,
+        "strict": true,
+        "noEmit": true,
+        "isolatedModules": true,
+        "noImplicitOverride": true,
+        "noUnusedLocals": true,
+        "useUnknownInCatchVariables": false,
+        "resolveJsonModule": true,
+        "paths": {
+            "@features/*": ["./src/features/*"],
+            "@services/*": ["./src/services/*"],
+            "@infra/*": ["./src/infra/*"]
+        }
+    }
+}
