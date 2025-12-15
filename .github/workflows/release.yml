@@ -26,19 +26,19 @@ jobs:
                 fetch-depth: 0
 
             - name: check commits
-              uses: cocogitto/cocogitto-action@v4.1
+              uses: cocogitto/cocogitto-action@v4.1.0
               with:
                 command: check
 
             - name: read current version
-              uses: cocogitto/cocogitto-action@v4.1
+              uses: cocogitto/cocogitto-action@v4.1.0
               id: current
               with:
                 command: -v get-version
                 args: --tag --fallback 0.0.0
 
             - name: perform a release
-              uses: cocogitto/cocogitto-action@v4.1
+              uses: cocogitto/cocogitto-action@v4.1.0
               id: perform
               with:
                 command: bump
@@ -52,7 +52,7 @@ jobs:
             - name: stdout changelog
               if: ${{ steps.current.outputs.stdout != steps.perform.outputs.version && steps.current.outputs.stdout != '0.0.0' }}
               id: changelog
-              uses: cocogitto/cocogitto-action@v4.1
+              uses: cocogitto/cocogitto-action@v4.1.0
               with:
                 command: changelog
                 args: --at ${{ steps.perform.outputs.version }}
