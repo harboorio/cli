@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "harboor-cli"
+dynamic = ["version"]
+description = 'CLI tool to setup products.'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Murat Gözel", email = "murat@gozel.com.tr" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "click>=8.0",
+]
+
+[project.scripts]
+harboor = "harboor_cli.cli:main"
+
+[project.urls]
+Documentation = "https://github.com/harboorio/cli#readme"
+Issues = "https://github.com/harboorio/cli/issues"
+Source = "https://github.com/harboorio/cli"
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.0.0",
+  "pytest",
+  "pytest-cov",
+  "pytest-asyncio",
+  "pre-commit",
+]
+
+[tool.hatch.version]
+source = "vcs"
+raw-options = { local_scheme = "no-local-version" }
+
+[tool.hatch.envs.dev]
+features = [
+  "dev",
+]
+
+[tool.hatch.envs.dev.scripts]
+check = "mypy --install-types --non-interactive {args:src/harboor_cli tests}"
+test = "pytest {args}"
+test-cov = "pytest --cov-report=term-missing --cov={args}"
+
+[tool.coverage.run]
+source_pkgs = ["harboor_cli", "tests"]
+branch = true
+parallel = true
+omit = []
+
+[tool.coverage.paths]
+harboor_cli = ["src/harboor_cli"]
+tests = ["tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]

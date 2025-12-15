@@ -1,0 +1,43 @@
+name: Release
+
+on:
+    push:
+        branches:
+            - main
+
+env:
+    CI: 1
+    GITHUB_TOKEN: ${{ github.token }}
+    PYTHON_VERSION: "3.14"
+
+permissions:
+    contents: write # to be able to publish a GitHub release
+    issues: write # to be able to comment on released issues
+    pull-requests: write # to be able to comment on released pull requests
+    id-token: write # to enable use of OIDC for npm provenance
+    packages: write
+
+jobs:
+    release:
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+
+            - name: check commits
+              uses: cocogitto/cocogitto-action@v4
+              with:
+                command: check
+
+            - name: perform a release
+              uses: cocogitto/cocogitto-action@v4
+              id: perform
+              with:
+                command: bump
+                args: --auto --skip-ci
+                git-user: 'Murat Gözel'
+                git-user-email: 'murat@gozel.com.tr'
+
+            - name: print version
+              run: "echo '${{ steps.perform.outputs.version }}'"
