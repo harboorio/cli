@@ -41,3 +41,16 @@ jobs:
 
             - name: print version
               run: "echo '${{ steps.perform.outputs.version }}'"
+
+            - name: stdout changelog
+              id: changelog
+              uses: cocogitto/cocogitto-action@v4
+              with:
+                command: changelog
+                args: --at ${{ github.ref_name }}
+
+            - name: create github release
+              uses: softprops/action-gh-release@v2
+              with:
+                body: ${{ steps.changelog.outputs.stdout }}
+                tag_name: ${{ github.ref_name }}
