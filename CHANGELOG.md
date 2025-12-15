@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.1.2](https://github.com/harboorio/cli/compare/3330653a56fb68e13fd3a2b4ccde2ba8b89e9026..v0.1.2) - 2025-12-15
+#### Bug Fixes
+- test deploy workflow (3) - ([3330653](https://github.com/harboorio/cli/commit/3330653a56fb68e13fd3a2b4ccde2ba8b89e9026)) - [@muratgozel](https://github.com/muratgozel)
+
+- - -
+
 ## [v0.1.1](https://github.com/harboorio/cli/compare/a4d1f79e0ca3832a41660e1c4e8b959fe84b248e..v0.1.1) - 2025-12-15
 #### Bug Fixes
 - test deploy workflow (2) - ([4a9e0a0](https://github.com/harboorio/cli/commit/4a9e0a00040a9c25f371a141aecff1694990a361)) - [@muratgozel](https://github.com/muratgozel)
