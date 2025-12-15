@@ -31,9 +31,11 @@ jobs:
                 command: check
 
             - name: read current version
+              uses: cocogitto/cocogitto-action@v4
               id: current
-              run: |
-                echo "version=$(cog -v get-version --fallback 0.0.0)" >> "$GITHUB_OUTPUT"
+              with:
+                command: -v get-version
+                args: --fallback 0.0.0
 
             - name: perform a release
               uses: cocogitto/cocogitto-action@v4
@@ -48,7 +50,7 @@ jobs:
               run: "echo '${{ steps.perform.outputs.version }}'"
 
             - name: stdout changelog
-              if: ${{ steps.current.outputs.version != steps.perform.outputs.version && steps.current.outputs.version != '0.0.0' }}
+              if: ${{ steps.current.outputs.stdout != steps.perform.outputs.version && steps.current.outputs.stdout != '0.0.0' }}
               id: changelog
               uses: cocogitto/cocogitto-action@v4
               with:
@@ -56,7 +58,7 @@ jobs:
                 args: --at ${{ steps.perform.outputs.version }}
 
             - name: create github release
-              if: ${{ steps.current.outputs.version != steps.perform.outputs.version && steps.current.outputs.version != '0.0.0' }}
+              if: ${{ steps.current.outputs.stdout != steps.perform.outputs.version && steps.current.outputs.stdout != '0.0.0' }}
               uses: softprops/action-gh-release@v2
               with:
                 body: ${{ steps.changelog.outputs.stdout }}
