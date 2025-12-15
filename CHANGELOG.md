@@ -2,6 +2,24 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [v0.1.1](https://github.com/harboorio/cli/compare/a4d1f79e0ca3832a41660e1c4e8b959fe84b248e..v0.1.1) - 2025-12-15
+#### Bug Fixes
+- test deploy workflow (2) - ([4a9e0a0](https://github.com/harboorio/cli/commit/4a9e0a00040a9c25f371a141aecff1694990a361)) - [@muratgozel](https://github.com/muratgozel)
+#### Continuous Integration
+- test deploy workflow - ([d5f8ce2](https://github.com/harboorio/cli/commit/d5f8ce22888b48a048cd642091337e105cb4d161)) - [@muratgozel](https://github.com/muratgozel)
+- fix current version read (4) - ([ffc5542](https://github.com/harboorio/cli/commit/ffc5542299dca2b47667947e5286b146fdae169b)) - [@muratgozel](https://github.com/muratgozel)
+- fix current version read (3) - ([dfd1ccd](https://github.com/harboorio/cli/commit/dfd1ccd9726acb5318d9d61ecde542ea8a2360cc)) - [@muratgozel](https://github.com/muratgozel)
+- fix current version read (2) - ([5f76581](https://github.com/harboorio/cli/commit/5f76581cdd824d5cc359c2040d95472154585489)) - [@muratgozel](https://github.com/muratgozel)
+- fix current version reading - ([f4ec3f5](https://github.com/harboorio/cli/commit/f4ec3f55a2e587df78348a722484e541d2ab6351)) - [@muratgozel](https://github.com/muratgozel)
+- only create a github release step if there is a new version - ([cc01a55](https://github.com/harboorio/cli/commit/cc01a552db679374817edba668ef51af7479dfe9)) - [@muratgozel](https://github.com/muratgozel)
+- create github release only on a new version - ([232ea24](https://github.com/harboorio/cli/commit/232ea248ea4d8b9148d3191066bfc49ebd7e999a)) - [@muratgozel](https://github.com/muratgozel)
+- fixed cog changelog - ([de79bec](https://github.com/harboorio/cli/commit/de79bec6b2375e24aaee7e858d2696f0133491a8)) - [@muratgozel](https://github.com/muratgozel)
+- moved github release - ([a0ef2c4](https://github.com/harboorio/cli/commit/a0ef2c4d149b6b393ec68449a89d2f402543740e)) - [@muratgozel](https://github.com/muratgozel)
+- added github release - ([4a9fbb0](https://github.com/harboorio/cli/commit/4a9fbb0eae663dda189140dcdc05035f52911437)) - [@muratgozel](https://github.com/muratgozel)
+- configured pre-commit - ([a4d1f79](https://github.com/harboorio/cli/commit/a4d1f79e0ca3832a41660e1c4e8b959fe84b248e)) - [@muratgozel](https://github.com/muratgozel)
+
+- - -
+
 ## [v0.1.0](https://github.com/harboorio/cli/compare/271a29daaec371b0ba6b042ea3affbdd8be47db8..v0.1.0) - 2025-12-15
 #### Features
 - initial version - ([271a29d](https://github.com/harboorio/cli/commit/271a29daaec371b0ba6b042ea3affbdd8be47db8)) - [@muratgozel](https://github.com/muratgozel)
