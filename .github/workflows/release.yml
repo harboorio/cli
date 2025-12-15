@@ -42,7 +42,7 @@ jobs:
             - name: print version
               run: "echo '${{ steps.perform.outputs.version }}'"
 
-            - name: stdout changelog
+            - name: stdout changelog if there is a new version
               id: changelog
               uses: cocogitto/cocogitto-action@v4
               with:
