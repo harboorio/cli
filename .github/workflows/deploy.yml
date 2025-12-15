@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+    push:
+        tags:
+            - "v*.*.*"
+
+jobs:
+    deploy:
+        runs-on: ubuntu-24.04
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+
+            - name: read current version
+              uses: cocogitto/cocogitto-action@v4.1.0
+              id: current
+              with:
+                command: -v get-version
+                args: --tag
+
+            - name: read current version from github
+              run: |
+                echo "${{ github.ref_name }}"
