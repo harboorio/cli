@@ -35,7 +35,7 @@ jobs:
               id: current
               with:
                 command: -v get-version
-                args: --fallback 0.0.0
+                args: --tag --fallback 0.0.0
 
             - name: perform a release
               uses: cocogitto/cocogitto-action@v4
