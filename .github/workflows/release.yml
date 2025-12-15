@@ -7,7 +7,7 @@ on:
 
 env:
     CI: 1
-    GITHUB_TOKEN: ${{ github.token }}
+    GITHUB_TOKEN: ${{ secrets.PERSONAL_PAT }}
     PYTHON_VERSION: "3.14"
 
 permissions:
