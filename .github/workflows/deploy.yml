@@ -5,6 +5,11 @@ on:
         tags:
             - "v*.*.*"
 
+env:
+    CI: 1
+    GITHUB_TOKEN: ${{ github.token }}
+    PYTHON_VERSION: "3.14"
+
 jobs:
     deploy:
         runs-on: ubuntu-24.04
@@ -23,3 +28,14 @@ jobs:
             - name: read current version from github
               run: |
                 echo "${{ github.ref_name }}"
+
+            - name: install python
+              uses: actions/setup-python@v4
+              with:
+                python-version: ${{ env.PYTHON_VERSION }}
+
+            - name: install hatch
+              run: |
+                pip install hatch
+                hatch version
+                hatch build
