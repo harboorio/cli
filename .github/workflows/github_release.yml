@@ -1,13 +1,13 @@
-name: Generate changelog
+name: Github Release
 
 on:
     push:
         tags:
-            - "XXX*.*.*" # @WARN disable this workflow temporarely
+            - "v*.*.*"
 
 env:
     CI: 1
-    GITHUB_TOKEN: ${{ secrets.PERSONAL_PAT }}
+    GITHUB_TOKEN: ${{ github.token }}
     PYTHON_VERSION: "3.14"
 
 permissions:
@@ -18,21 +18,21 @@ permissions:
     packages: write
 
 jobs:
-    changelog:
+    github:
         runs-on: ubuntu-24.04
         steps:
             - uses: actions/checkout@v4
               with:
                 fetch-depth: 0
 
-            - name: Generate changelog
+            - name: stdout changelog
               id: changelog
               uses: cocogitto/cocogitto-action@v4
               with:
                 command: changelog
                 args: --at ${{ github.ref_name }}
 
-            - name: Create Github release with changelog contents
+            - name: create github release
               uses: softprops/action-gh-release@v2
               with:
                 body: ${{ steps.changelog.outputs.stdout }}
